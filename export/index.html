@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Reveal JS presentation</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- highlight Theme -->
+  
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+  
+	
+		
+	<link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+	
+	
+	
+	
+
+
+
+  <!-- Revealjs Theme -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/moon.css" id="theme">
+  
+  
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+	<link rel="stylesheet" href="libs/styles/iota.css">
+	<link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+  
+
+   <!-- css list -->
+	
+
+   
+
+</head>
+
+<body>
+
+   
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+
+
+    
+        <section >
+            
+            <style>
+    .slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6 {
+        text-transform: none;
+    }
+
+    .col {
+        display: grid;
+        grid-auto-flow: column;
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    .cite {
+        display: inline-block;
+        width: fit-content;
+        font-size: 0.6em;
+        border-top: 1px solid #ccc;
+        line-height: 1.5;
+        margin-top: 3em;
+    }
+    .cite:before {
+        content: "📖 ";
+    }
+</style>
+<h2>JavaScript Quick Start</h2>
+<h3>for Python Developers</h3>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>JavaScript Versions</h3>
+<ul>
+<li>JavaScript is officially called ECMAScript
+<ul>
+<li>ECMA is the organization that maintains the js standard</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>
+<p>The standard has gone through <a href="https://www.w3schools.com/js/js_versions.asp">six major versions</a></p>
+</li>
+<li>
+<p>Most versions were backwards compatible</p>
+<ul>
+<li>except for ES5 (2009), which introduced a backwards incompatible <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">strict mode</a></li>
+<li>and then ES6 (2015) introduced a lot of cool new syntax and ushered in a new era we call “modern JavaScript”</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Every year since 2015 we get an updated version of the standard with new features
+<ul>
+<li>but usually there is a lag in browser support</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Objects</h3>
+<ul>
+<li>js is object-oriented, but not in the classical sense</li>
+<li>objects are not necessarily instances of classes</li>
+</ul>
+<p class="cite"><a href="">https://javascript.info/object</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4>objects are collections of key-value pairs</h4>
+<pre><code class="language-js">// `person` is an object with three properties
+person = {
+  name: 'Jim',
+  age: 18,
+  hobbies: ['sports', 'coding']
+};
+
+// accessing object properties
+person.name; //=&gt; 'Jim'
+
+// objects are open for modification
+person.name = 'Dimitris'; // Update a property
+person.gender = 'male'; // Add a new property
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>where in python we would use a dictionary <br>
+in js we use an object</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>but of course objects can have methods too</p>
+<pre><code class="language-js">person = {
+  name: 'Jim',
+  age: 18,
+  hobbies: ['sports', 'coding'],
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Variable declarations</h3>
+<pre><code class="language-js">x = 5; // global variable -- avoid
+var y = 10; // old-style local variable -- not recommended
+let y = 10; // local variable
+const z = 15; // local variable protected from reassignment
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h5>const</h5>
+<p>const offers protection against reassignment, but it does not make the variable immutable.</p>
+<pre><code class="language-js">const person = { name: 'Jim' };
+person.name = 'Dimitris'; // allowed
+person = { name: 'Dimitris' }; // not allowed
+
+const arr = [1, 2, 3];
+arr.push(4); // allowed
+arr = [1, 2, 3, 4]; // not allowed
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Declare all variables with <code>const</code> or <code>let</code></li>
+<li>Always prefer <code>const</code> for variables that are not going to be reassigned</li>
+</ul>
+<p class="cite"><a href="">https://javascript.info/variables</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Function declarations</h3>
+<article class="col">
+<section>
+<h5>Javascript</h5>
+<pre><code class="language-js">// named function
+function add(a, b) {
+  return a + b;
+}
+</code></pre>
+<pre><code class="language-js">// arrow function
+const add = (a, b) =&gt; a + b;
+
+</code></pre>
+<pre><code class="language-js">// anonymous function
+const add = function(a, b) {
+  return a + b;
+};
+</code></pre>
+</section>
+<section>
+<h5>Python</h5>
+<pre><code class="language-python"># named function
+def add(a, b):
+    return a + b
+
+</code></pre>
+<pre><code class="language-python"># lambda
+add = lambda a, b: a + b
+
+</code></pre>
+<pre><code class="language-python">
+# no python equivalent
+
+
+</code></pre>
+</section>
+</article>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="cite"><a href="https://javascript.info/function-expressions">https://javascript.info/function-expressions</a> </p>
+<p class="cite"><a href="https://javascript.info/arrow-functions-basics">https://javascript.info/arrow-functions-basics</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Destructuring</h3>
+<article class="col">
+<section>
+<h5>Javascript</h5>
+<pre><code class="language-js">// array destructuring
+const arr = ['John', 'Doe'];
+const [firstname, lastname] = arr;
+
+console.log(firstname); //=&gt; 'John'
+console.log(lastname); //=&gt; 'Doe'
+</code></pre>
+<pre><code class="language-js">// object destructuring
+const person = {
+    name: 'John',
+    age: 30
+};
+const { name, age } = person;
+
+console.log(name); //=&gt; 'John'
+console.log(age); //=&gt; 30
+</code></pre>
+</section>
+<section>
+<h5>Python</h5>
+<pre><code class="language-python"># list unpacking
+arr = ['John', 'Doe']
+firstname, lastname = arr
+
+print(firstname) #=&gt; 'John'
+print(lastname) #=&gt; 'Doe'
+</code></pre>
+<pre><code class="language-python">
+
+
+
+
+# no equivalent feature
+
+
+
+</code></pre>
+</section>
+</article>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="cite"><a href="">https://javascript.info/destructuring-assignment</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h4>spread operator (<code>...</code>)</h4>
+<p>Same as python’s asterisk operator (<code>*</code>)</p>
+<article class="col">
+<section>
+<h5>Javascript</h5>
+<pre><code class="language-js">// array destructuring
+const arr = [1,2,3,4,5];
+const [one, two, ...rest] = arr;
+
+console.log(one); //=&gt; 1
+console.log(two); //=&gt; 2
+console.log(rest); //=&gt; [3,4,5]
+</code></pre>
+<pre><code class="language-js">// array concatenation
+const middle = [2,3,4];
+const arr = [1, ...middle, 5];
+
+console.log(arr); //=&gt; [1,2,3,4,5]
+</code></pre>
+</section>
+<section>
+<h5>Python</h5>
+<pre><code class="language-python"># list unpacking
+arr = [1,2,3,4,5]
+one, two, *rest = arr
+
+print(one) #=&gt; 1
+print(two) #=&gt; 2
+print(rest) #=&gt; [3,4,5]
+</code></pre>
+<pre><code class="language-python"># list packing
+middle = [2,3,4]
+arr = [1, *middle, 5]
+
+print(arr) #=&gt; [1,2,3,4,5]
+</code></pre>
+</section>
+</article>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <pre><code class="language-js">// object destructuring
+const person = {
+    name: 'John',
+    age: 30,
+    nationality: 'US',
+    married: true
+};
+const { name, nationality, ...demographics } = person;
+
+console.log(name); //=&gt; 'John'
+console.log(nationality); //=&gt; 'US'
+console.log(demographics); //=&gt; { age: 30, married: true }
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <pre><code class="language-js">// object merging
+const name = &quot;John&quot;;
+const nationality = &quot;US&quot;;
+const demographics = {
+    age: 30,
+    married: true
+};
+const person = { name, ...demographics, nationality };
+
+console.log(person); //=&gt;
+// {
+//    name: 'John',
+//    age: 30,
+//    married: true,
+//    nationality: 'US'
+// }
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Promises</h3>
+<p>(I promise you, this is not as complicated as it seems)</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>In most javascript code, you will see the keywords <code>async</code> and <code>await</code> used together.</p>
+<p>What is the deal with that?</p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <ul>
+<li>Javascript was designed to make HTML pages interactive
+<ul>
+<li>user actions (e.g. clicking, scrolling etc) trigger events</li>
+<li>events are handled by javascript functions called event handlers</li>
+</ul>
+</li>
+</ul>
+<p class="cite"><a href="">https://javascript.info/events</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="left">Imagine a webpage where clicking a button triggers an event handler that fetches data from the server. This could take a few seconds. </p>
+<p class="left">Imagine if during those seconds the browser was unresponsive (e.g. you couldn’t scroll, and you couldn’t click on other buttons). That would be terrible. </p>
+<p class="left">To avoid this, javascript was designed to be asynchronous by default. </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="left">In most programming languages, to make an operation asynchronous, you run the operation in a separate thread. </p>
+<p class="left">But launching multiple threads simultaneously can be expensive in terms of memory and CPU usage. </p>
+<p class="left">Imagine a webpage with 100 interactive elements, each with its own event handler. If each event handler was running in a separate thread, the browser would quickly run out of resources. </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>So javascript came up with an interesting solution:</p>
+<ul>
+<li>All potentially time-consuming operations would be asynchronous</li>
+<li>But they would all run in a single thread</li>
+<li>When an asynchronous operation was triggered, it would be added to a queue</li>
+<li>The interpreter would run in a continuous loop, processing the queue one operation at a time, until the queue was empty</li>
+</ul>
+<p>This is called the event loop.</p>
+<p class="cite"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="left">Why is this important to you, the programmer?  </p>
+<p class="left">See, when you call an asynchronous function, the function doesn’t return the result, like in most languages.  </p>
+<p class="left">Instead, it simply enqueues the operation in the event loop and immediately returns special object called a Promise.  </p>
+<p class="left">A Promise object is like a placeholder for the result, which will be available in the future.  </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="left">So what do you do with a promise?  </p>
+<p class="left">Usually, you await it. “Awaiting” means that you ask the interpreter to  </p>
+<ul>
+<li>put your code to sleep until the result is available</li>
+<li>then resume your code, having replaced the promise with its result</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>Here is an example: fetching data from a server</p>
+<pre><code class="language-js">const employeesUrl =
+  &quot;https://dummy.restapiexample.com/api/v1/employees&quot;;
+const response = await fetch(employeesUrl);
+const { data } = await response.json();
+console.log(data.length)
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>All functions that need to use <code>await</code> <br>
+must be declared as <code>async</code></p>
+<pre><code class="language-js">async function employeeCount() {
+    const employeesUrl =
+      &quot;https://dummy.restapiexample.com/api/v1/employees&quot;;
+    const response = await fetch(employeesUrl);
+    const { data } = await response.json();
+    return data.length;
+}
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p>All functions declared as <code>async</code> <br>
+implicitly and automatically return a promise.</p>
+<p>So they must be called with <code>await</code>.</p>
+<pre><code class="language-js">console.log(await employeeCount())
+</code></pre>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <p class="cite"><a href="">https://javascript.info/async-await</a> </p>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Modules</h3>
+<ul>
+<li>
+<p>Once upon a time, javascript did not provide a way to split code into multiple files, because this was not needed in the browser</p>
+</li>
+<li>
+<p>ES6 introduced the <code>import</code> and <code>export</code> keywords</p>
+</li>
+</ul>
+
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <pre><code class="language-js">// mymodule.js
+export function add(a, b) {
+    return a + b;
+}
+</code></pre>
+<pre><code class="language-js">// main.js
+import { add } from './mymodule.js';
+console.log(add(3, 4)); //=&gt; 7
+</code></pre>
+<p class="cite"><a href="">https://javascript.info/import-export</a> </p>
+
+            </section>
+    
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+  
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      RevealChalkboard, 
+			RevealEmbedTweet,
+			RevealChart,
+		];
+
+		const plugins =  [...printPlugins,
+		RevealZoom, 
+		RevealSearch, 
+				RevealMarkdown, 
+				
+				RevealFullscreen,
+				RevealAnything,
+				//RevealAudioSlideshow,
+				//RevealAudioRecorder,
+				
+				// poll
+				// question
+				// seminar
+				Verticator 
+				 ]
+
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			controls: false,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: false,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: true,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 960,
+			height: 700,
+			margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+      
+      chalkboard: { // font-awesome.min.css must be available
+        //src: "chalkboard/chalkboard.json",
+        storage: "chalkboard-demo",
+      },
+      
+			customcontrols: {
+					controls: [
+      						{
+						  id: 'toggle-overview',
+						  title: 'Toggle overview (O)',
+						  icon: '<i class="fa fa-th"></i>',
+						  action: 'Reveal.toggleOverview();'
+						}
+						,
+      {
+        icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      {
+        icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+      
+				]
+			},
+			chart: {
+					defaults: { 
+						color: 'lightgray', // color of labels
+						scale: { 
+							beginAtZero: true, 
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] }, 
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+					pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]}, 
+			},
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				anything: [ 
+				{
+		className: "plot",
+		defaults: {width:500, height: 500, grid:true},
+		initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+	 },
+	 {
+		className: "chart",  
+		initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+	 },
+	 {
+		className: "anything",
+		initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+	 },
+					],
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins ) 
+		});
+			
+
+
+	    // Change chalkboard theme : 
+		function changeTheme(input) {
+			var config = {};
+			config.theme = input.value;
+			Reveal.getPlugin("RevealChalkboard").configure(config);
+			input.blur();
+		}
+
+		// // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+		if (window.location.search.match(/print-pdf-now/gi)) {
+      		setTimeout(() => {
+				window.print();
+			  }, 2500);
+			
+    }
+</script>
+
+</body>
+
+</html>
